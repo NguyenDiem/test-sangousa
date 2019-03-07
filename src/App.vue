@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import "/Users/inmac/Project/Sanguosa dashboard/sangousa/src/assets/css/main.css";
+import "@/assets/css/main.css";
 export default {};
 </script>
 <style>
