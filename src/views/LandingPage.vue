@@ -40,7 +40,7 @@ export default {
   height: 200px;
 }
 .bg-landing {
-  background-image: url("~@/assets/dynasty-warriors-9-official-launch-trailer_k3x7.png");
+  background-image: url("~@/assets/dynasty-warriors-9-official-launch-trailer_k3x7.jpg");
 }
 </style>
 

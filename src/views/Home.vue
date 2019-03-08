@@ -23,7 +23,7 @@ export default {
 </script>
 <style>
 .bg-home {
-  background-image: url("~@/assets/cropped-1920-1080-838166.png");
+  background-image: url("~@/assets/cropped-1920-1080-838166 (3).jpg");
 }
 .text-home {
   color: #dadada;
