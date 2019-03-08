@@ -12,8 +12,8 @@
         :key="player.id"
         class="border-b-4 border-black p-5 flex items-center justify-between w-full"
       >
-        <div class="font-bold text-2xl">Score: {{player.score}}</div>
-        <div class="text-lg">{{player.money}} VND</div>
+        <div class="font-bold lg:text-2xl text-base">Score: {{player.score}}</div>
+        <div class="lg:text-lg text-sm">{{player.money}} VND</div>
       </div>
     </div>
     <div class="mt-10 flex items-center justify-between">

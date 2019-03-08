@@ -11,13 +11,13 @@
       <div
         v-for="player in players"
         :key="player.id"
-        class="border-2 mb-5 h-32 rounded flex items-center justify-between px-5 h-100px jutify-between"
+        class="border-2 mb-5 lg:h-32 h-20 rounded flex items-center justify-between px-5 jutify-between"
       >
         <div class="flex flex-inline items-center w-2/3">
-          <div class="font-bold text-3xl w-1/3 text-color">Score</div>
+          <div class="font-bold lg:text-3xl text-base w-1/3 text-color mr-5">Score</div>
           <input v-model="player.score" class="input-score w-2/3">
         </div>
-        <button class="font-bold text-xl" @click="deletePlayer(player.id)">Delete</button>
+        <button class="font-bold lg:text-xl text-base" @click="deletePlayer(player.id)">Delete</button>
       </div>
     </div>
     <div class="flex justify-between w-full items-center mb-5">
@@ -25,8 +25,8 @@
       <input class="w-1/3 border-2 rounded" placeholder="Input money: " v-model="money">
     </div>
     <div class="flex justify-between w-full items-center">
-      <button class="font-bold text-3xl text-color" @click="addPlayer">Add new player</button>
-      <button class="font-bold text-3xl text-color" @click="submit">Submit</button>
+      <button class="font-bold lg:text-3xl text-base text-color" @click="addPlayer">Add new player</button>
+      <button class="font-bold lg:text-3xl text-base text-color" @click="submit">Submit</button>
     </div>
   </div>
 </template>
@@ -100,8 +100,13 @@ export default {
 
 <style scoped>
 input {
-  padding-left: 20px;
-  font-size: 60px;
+  font-size: 30px;
+}
+@media screen and (min-width: 992px) {
+  input {
+    padding-left: 20px;
+    font-size: 60px;
+  }
 }
 input:focus {
   outline: none;
