@@ -1,6 +1,11 @@
 /* eslint-disable */
 <template>
   <div class="flex flex-col py-10 w-full px-10 h-full">
+    <img
+      src="@/assets/DC0EEC19-6941-4F4D-BE82-F605A9C45E2F.png"
+      alt="logo"
+      class="-mt-32 flex mx-auto"
+    >
     <div class="font-bold text-2xl text-center mb-10">score panel</div>
     <div class="score-panel overflow-y-auto mb-5">
       <div
@@ -8,11 +13,11 @@
         :key="player.id"
         class="border-2 mb-5 h-32 rounded flex items-center justify-between px-5 h-100px jutify-between"
       >
-        <div class="font-bold text-3xl w-2/3 text-color">{{player.name}}</div>
-        <div class="flex flex-inline items-center w-1/3">
+        <div class="flex flex-inline items-center w-2/3">
+          <div class="font-bold text-3xl w-1/3 text-color">Score</div>
           <input v-model="player.score" class="input-score w-2/3">
-          <button class="font-bold text-xl" @click="deletePlayer(player.id)">Delete</button>
         </div>
+        <button class="font-bold text-xl" @click="deletePlayer(player.id)">Delete</button>
       </div>
     </div>
     <div class="flex justify-between w-full items-center mb-5">
@@ -20,7 +25,7 @@
       <input class="w-1/3 border-2 rounded" placeholder="Input money: " v-model="money">
     </div>
     <div class="flex justify-between w-full items-center">
-      <button class="font-bold text-3xl text-color" @click="addPlayer">AddPlayer</button>
+      <button class="font-bold text-3xl text-color" @click="addPlayer">Add new player</button>
       <button class="font-bold text-3xl text-color" @click="submit">Submit</button>
     </div>
   </div>
@@ -32,7 +37,8 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters({
-      players: "getPlayers"
+      players: "getPlayers",
+      numberPlayer: "getNumberPlayer"
     })
   },
   data() {
@@ -41,6 +47,9 @@ export default {
       scorePlayer: [],
       moneyPart: 0
     };
+  },
+  created() {
+    if (this.numberPlayer === 0) this.$store.commit("increasePlayer");
   },
   methods: {
     submit() {
@@ -55,10 +64,7 @@ export default {
       return 0;
     },
     sharePart() {
-      let share = 0;
-      for (let i = 1; i <= this.scorePlayer.length; i++) {
-        share = share + i;
-      }
+      let share = ((this.numberPlayer + 1) * this.numberPlayer) / 2;
       this.moneyPart = (this.money / share).toFixed(2);
     },
     findMoney() {
@@ -84,7 +90,6 @@ export default {
     },
     addPlayer() {
       this.$store.commit("increasePlayer");
-      this.$emit("addPlayer");
     },
     deletePlayer(key) {
       this.$store.commit("deletePlayer", key);

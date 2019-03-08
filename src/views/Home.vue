@@ -1,8 +1,8 @@
 <template>
   <div class="home w-full h-full bg-home flex justify-center items-center flex-col">
-    <div class="text-5xl font-bold text-home">sangousa</div>
+    <img src="@/assets/DC0EEC19-6941-4F4D-BE82-F605A9C45E2F.png" alt="logo">
     <button
-      class="text-small ml-32 cursor-pointer hover:font-bold"
+      class="text-small text-lg ml-32 cursor-pointer hover:font-bold"
       @click="goInput"
     >Input number of player</button>
   </div>
@@ -23,13 +23,13 @@ export default {
 </script>
 <style>
 .bg-home {
-  background-color: #161617;
+  background-image: url("~@/assets/cropped-1920-1080-838166.png");
 }
 .text-home {
   color: #dadada;
 }
 .text-small {
-  color: #f7cbc7;
+  color: #f6eb9e;
 }
 </style>
 

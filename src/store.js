@@ -5,9 +5,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    numberPlayer: null,
+    numberPlayer: 0,
     players: [],
-    money: null
+    money: null,
+    id: 0,
   },
   getters: {
     getNumberPlayer: state => {
@@ -26,6 +27,12 @@ export default new Vuex.Store({
     },
     increasePlayer(state) {
       state.numberPlayer += 1;
+      state.id += 1;
+      state.players.push({
+        id: state.id,
+        score: 0,
+        money: 0
+      });
     },
     updateMoney(state, money) {
       state.money = money;
@@ -44,7 +51,7 @@ export default new Vuex.Store({
     resetStore(state) {
       state.players = [];
       state.money = null;
-      state.numberPlayer = null;
+      state.numberPlayer = 0;
     }
   },
   actions: {}

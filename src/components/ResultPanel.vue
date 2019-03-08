@@ -1,5 +1,10 @@
 <template>
   <div class="w-full py-10 px-5">
+    <img
+      src="@/assets/DC0EEC19-6941-4F4D-BE82-F605A9C45E2F.png"
+      alt="logo"
+      class="-mt-32 flex mx-auto"
+    >
     <div class="text-3xl font-bold text-center mb-10">result board</div>
     <div class="result-board">
       <div
@@ -7,7 +12,7 @@
         :key="player.id"
         class="border-b-4 border-black p-5 flex items-center justify-between w-full"
       >
-        <div class="font-bold text-2xl">{{player.name}}</div>
+        <div class="font-bold text-2xl">Score: {{player.score}}</div>
         <div class="text-lg">{{player.money}} VND</div>
       </div>
     </div>
@@ -28,8 +33,8 @@ export default {
   },
   methods: {
     newRound() {
-      this.$emit("newRound");
       this.$store.commit("resetStore");
+      this.$emit("newRound");
     },
     back() {
       this.$emit("back");
@@ -40,7 +45,7 @@ export default {
 
 <style scoped>
 .result-board {
-  height: 50vh;
+  height: 40vh;
   overflow-y: auto;
 }
 </style>
